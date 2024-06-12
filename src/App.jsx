@@ -22,7 +22,7 @@ console.log(pokemonIndex);
     <div>
       <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
       <NavBar pokemonIndex={pokemonIndex} 
-      pokemonList={pokemonList} previousClick={previousClick} nextClick={nextClick}/>
+      pokemonList={pokemonList} setPokemonIndex={setPokemonIndex}/>
     </div>
   );
 }
