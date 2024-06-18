@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useEffect } from "react";
 import PokemonCard from "./components/PokemonCard";
 import NavBar from "./components/NavBar";
 import "./App.css";
@@ -7,26 +8,7 @@ import "./App.css";
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-  const previousClick = () => {
-    if (pokemonIndex > 0) {
-    setPokemonIndex(pokemonIndex - 1);
-    }
-  }
-  const nextClick = () => {
-    if (pokemonIndex < pokemonList.length - 1) {
-    setPokemonIndex(pokemonIndex + 1);
-    }
-  }
-console.log(pokemonIndex);
-  return (
-    <div>
-      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
-      <NavBar pokemonIndex={pokemonIndex} 
-      pokemonList={pokemonList} setPokemonIndex={setPokemonIndex}/>
-    </div>
-  );
-}
-
+  
 const pokemonList = [
   {
     name: "Bulbizarre",
@@ -52,5 +34,45 @@ const pokemonList = [
     name: "Mew",
   },
 ];
+
+  const checkForPikachu = (index) => {
+    const selectedPokemon = pokemonList[index];
+    if (selectedPokemon.name === "Pikachu") {
+      alert("Pika Pikachu !!!");
+    }
+  };
+
+  const previousClick = () => {
+    if (pokemonIndex > 0) {
+    setPokemonIndex(pokemonIndex - 1);
+    checkForPikachu(pokemonIndex - 1);
+    }
+  }
+  const nextClick = () => {
+    if (pokemonIndex < pokemonList.length - 1) {
+    setPokemonIndex(pokemonIndex + 1);
+    checkForPikachu(pokemonIndex + 1);
+    }
+  }
+
+  useEffect(() => {
+    alert("Hello pokemon trainer :)");
+  }, []); // Le tableau vide assure que l'alerte ne s'ouvre qu'au démarrage
+
+console.log(pokemonIndex);
+
+  return (
+    <div>
+      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+      <NavBar 
+        pokemonList={pokemonList} 
+        setPokemonIndex={(index) => { 
+            setPokemonIndex(index);
+            checkForPikachu(index);
+        }}
+        />
+    </div>
+  );
+}
 
 export default App;

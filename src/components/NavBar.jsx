@@ -1,7 +1,7 @@
 
 
 
-function NavBar({pokemonIndex, pokemonList, setPokemonIndex}) {
+function NavBar({pokemonList, setPokemonIndex}) {
 
     return (
         <div>
