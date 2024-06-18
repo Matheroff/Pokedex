@@ -34,7 +34,26 @@
 }
 
 .card {
-  padding: 2em;
+  padding: 2rem;
+  background-color: lightgreen;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 5px gray;
+  text-shadow: 0px 0px 5px gray; 
+  /* width: 200px;
+  color: white;
+  font-size: 1.6rem;
+  text-align: center;*/
+}
+
+img {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 5px gray;
+}
+
+figcaption {
+  color: white;
+  font-size: 35pt;
 }
 
 .read-the-docs {
